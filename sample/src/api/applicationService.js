@@ -1,15 +1,22 @@
 import { IframeMessageProxy } from 'iframe-message-proxy'
 
 export const getApplication = async () => {
-    const { response: application } = await IframeMessageProxy.sendMessage({
+    const { response } = await IframeMessageProxy.sendMessage({
         action: 'getApplication',
     })
 
-    return application
+    if (response) {
+        return response.application;
+    }
+    else {
+        return ({
+            shortName: "Application"
+        });
+    }
 }
 
 export const getContacts = async () => {
-    const { response: { items } } = await IframeMessageProxy.sendMessage({
+    const { response } = await IframeMessageProxy.sendMessage({
         action: 'sendCommand',
         content: {
             destination: 'MessagingHubService',
@@ -19,12 +26,15 @@ export const getContacts = async () => {
             }
         }
     })
-    
-    return items
+    if (response) {
+        return response.items
+    }
+    else
+        return [];
 }
 
 export const getThreads = async () => {
-    const { response: { items } } = await IframeMessageProxy.sendMessage({
+    const { response } = await IframeMessageProxy.sendMessage({
         action: 'sendCommand',
         content: {
             destination: 'MessagingHubService',
@@ -35,5 +45,9 @@ export const getThreads = async () => {
         }
     })
 
-    return items
+    if (response) {
+        return response.items
+    }
+    else
+        return [];
 }
