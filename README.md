@@ -1,8 +1,8 @@
-[![Blip-plugin](https://i.imgur.com/6zaam3J.png "Blip-plugin")][blip]
+[![Blip-plugin](https://imgur.com/B8dPNgk.png "Blip-plugin")][blip]
 
-# Blip plugin
+# BLiP plugin
 
-Blip plugin it's an technology agnostic way to plug unnoficial features to enhance the portal capabilities.
+BLiP plugin it's a technology-agnostic way to plug unnoficial features to enhance the portal capabilities.
 
 This project aims to give the initial skill needed to develop and build your own plugins.
 
