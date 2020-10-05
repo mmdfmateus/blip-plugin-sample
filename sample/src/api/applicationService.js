@@ -5,11 +5,11 @@ export const getApplication = async () => {
         action: 'getApplication',
     })
 
-    return application
+    return application ?? {}
 }
 
 export const getContacts = async () => {
-    const { response: { items } } = await IframeMessageProxy.sendMessage({
+    const { response } = await IframeMessageProxy.sendMessage({
         action: 'sendCommand',
         content: {
             destination: 'MessagingHubService',
@@ -20,11 +20,11 @@ export const getContacts = async () => {
         }
     })
     
-    return items
+    return response ? response.items : {};
 }
 
 export const getThreads = async () => {
-    const { response: { items } } = await IframeMessageProxy.sendMessage({
+    const { response } = await IframeMessageProxy.sendMessage({
         action: 'sendCommand',
         content: {
             destination: 'MessagingHubService',
@@ -35,5 +35,5 @@ export const getThreads = async () => {
         }
     })
 
-    return items
+    return response ? response.items : [];
 }
